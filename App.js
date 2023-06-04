@@ -1,22 +1,18 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TodoListScreen from './components/TodoListScreen';
-import SettingScreen from './components/SettingScreen';
-import MyPageScreen from './components/MypageScreen';
+import CompletedTasksScreen from './components/CompletedTasksScreen';
 
-const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="TodoList"
-        drawerPosition = "right"
-      >
-        <Drawer.Screen name="TodoList" component={TodoListScreen} />
-        <Drawer.Screen name="Setting" component={SettingScreen} />
-        <Drawer.Screen name="MyPage" component={MyPageScreen} />
-      </Drawer.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Todo" component={TodoListScreen} />
+        <Tab.Screen name="Completed" component={CompletedTasksScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
